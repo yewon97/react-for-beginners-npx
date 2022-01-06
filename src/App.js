@@ -1,14 +1,18 @@
 import { useState, useEffect } from 'react';
 
 function Hello() {
-  function byeFn() {
-    console.log("bye :(");
-  }
-  function hiFn() {
-    console.log("created :)");
-    return byeFn;
-  }
-  useEffect(hiFn, []);
+  // function 으로 쓰는 법
+  useEffect(function() {
+    console.log("hi :)");
+    return function () {
+      console.log("bye :(");
+    };
+  }, []);
+  // 화살표함수로 쓰는 법
+  // useEffect(() => {
+  //   console.log("hi :)");
+  //   return () => console.log("bye :(");
+  // }, []);
   return <h1>Hello</h1>;
 }
 
