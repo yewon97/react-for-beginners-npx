@@ -1,15 +1,13 @@
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import styles from './Button.module.css'
 
 function Button({text}) {
   return (
-  <button style={{
-    backgroundColor: "tomato",
-    color: "white",
-  }}>{text}</button>
+  <button className={styles.btn}>{text}</button>
   );
 }
 Button.propTypes = {
-  text: propTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 }
 
 // 외부로 export하기 위한 문장
