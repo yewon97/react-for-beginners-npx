@@ -10,13 +10,14 @@ function App() {
     console.log('CALL THE API...');
   }, []);
   useEffect(() => {
-    // keyword가 바뀔 때 리렌더링 하고 싶으면 []안에 keyword를 적으면됨
-    console.log('Search for', keyword);
+    if(keyword !== "" && keyword.length > 6){
+      console.log('Search for', keyword);
+    }
   }, [keyword]);
     return (
     <div>
       <input 
-        value={keyword} 
+        value={keyword}
         onChange={onChange} 
         type="text" 
         placeholder="Search here..." 
