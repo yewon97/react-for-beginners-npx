@@ -13,7 +13,6 @@ function App() {
     setToDos((currentArray) => [toDo, ...currentArray]);
     setToDo(''); // input을 비워줌
   };
-  console.log(toDos);
   return (
     <div>
       <h1>My To Dos ({toDos.length})</h1>
@@ -23,8 +22,8 @@ function App() {
       </form>
       <hr />
       <ul>
-        {toDos.map((item) => (
-          <li>{item}</li>
+        {toDos.map((item, index) => (
+          <li key={index}>{item}</li>
         ))}
       </ul>
     </div>
