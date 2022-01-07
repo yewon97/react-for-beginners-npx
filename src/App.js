@@ -6,13 +6,14 @@ function App() {
   const onChange = (event) => setToDo(event.target.value);
   const onSubmit = (event) => {
     event.preventDefault();
-    if(toDo === "") {
+    if (toDo === '') {
       // 비어 있으면 함수를 실행시키지 않음
       return;
     }
-    setToDos((currentArray) => [toDo, ...currentArray]); 
-    setToDo(""); // input을 비워줌
+    setToDos((currentArray) => [toDo, ...currentArray]);
+    setToDo(''); // input을 비워줌
   };
+  console.log(toDos);
   return (
     <div>
       <h1>My To Dos ({toDos.length})</h1>
@@ -20,6 +21,12 @@ function App() {
         <input onChange={onChange} value={toDo} type="text" placeholder="Write your to do..." />
         <button>Add To Do</button>
       </form>
+      <hr />
+      <ul>
+        {toDos.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 }
